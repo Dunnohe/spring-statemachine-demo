@@ -112,25 +112,12 @@
         <!-- Log4j-2 End -->
     </dependencies>
     <build>
-        <finalName>${project.artifactId}-release-${project.version}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <groupId>org.eclipse.jetty</groupId>
-                <configuration>
-                    <httpConnector>
-                        <port>8416</port>
-                    </httpConnector>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <jvmArgs>-verbosegc</jvmArgs>
                 </configuration>
             </plugin>
         </plugins>

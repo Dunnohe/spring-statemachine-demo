@@ -4,6 +4,7 @@ import org.springframework.messaging.Message;
 import org.springframework.statemachine.ExtendedState;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.annotation.EventHeaders;
+import org.springframework.statemachine.annotation.OnTransition;
 import org.springframework.statemachine.annotation.WithStateMachine;
 
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.Map;
 @WithStateMachine(name = "myStateMachine")
 public class ActionHandler {
 
-    @StatesOnTransition(source = { States.CREATE }, target = { States.UPDATE })
+    @OnTransition(source = { "CREATE" }, target = { "UPDATE" })
     public void editAction(@EventHeaders Map<String, Object> headers,
                            ExtendedState extendedState,
                            StateMachine<String, String> stateMachine,
