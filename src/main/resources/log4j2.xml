@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- 输出到控制台 -->
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <!-- 需要记录的级别 -->
+            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY" />
+            <PatternLayout pattern="%date{MM-dd HH:mm:ss.SSS} %highlight{[%-5level]} %cyan{%logger{0}:%line} [%.11thread] - %highlight{%m} %n"/>
+        </Console>
+
+    </Appenders>
+    <Loggers>
+        <Root level="warn"> <!-- 全局配置 -->
+            <AppenderRef ref="CONSOLE"/>
+        </Root>
+
+    </Loggers>
+</Configuration>

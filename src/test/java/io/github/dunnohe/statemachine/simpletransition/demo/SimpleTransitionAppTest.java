@@ -22,5 +22,6 @@ public class SimpleTransitionAppTest extends AbstractJUnit4SpringContextTests  {
     @Test
     public void testEdit() throws Exception {
         simpleTransitionApp.edit(1, "aaa");
+        System.err.println("success!");
     }
 }

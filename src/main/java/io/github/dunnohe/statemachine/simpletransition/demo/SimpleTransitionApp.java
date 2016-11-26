@@ -1,10 +1,8 @@
 package io.github.dunnohe.statemachine.simpletransition.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.annotation.WithStateMachine;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by lianghe on 16/11/26.
