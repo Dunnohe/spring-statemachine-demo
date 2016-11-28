@@ -23,4 +23,8 @@ public class SimpleTransitionApp {
         stateMachine.getExtendedState().getVariables().put(VarType.EDITCONTENT, editContent);
         stateMachine.sendEvent(Events.EDIT);
     }
+
+    public void publish() {
+        stateMachine.sendEvent(Events.PUBLISH);
+    }
 }

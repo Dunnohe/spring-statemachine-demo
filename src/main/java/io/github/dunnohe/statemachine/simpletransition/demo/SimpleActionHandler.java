@@ -14,7 +14,7 @@ import java.util.Map;
  * action handler
  */
 @WithStateMachine(name = "myStateMachine")
-public class ActionHandler {
+public class SimpleActionHandler {
 
     @OnTransition(source = { "CREATE" }, target = { "UPDATE" })
     public void editAction(@EventHeaders Map<String, Object> headers,
@@ -28,4 +28,24 @@ public class ActionHandler {
         System.err.println("receive :" + stateMachine);
         System.err.println("receive :" + message);
     }
+
+    @OnTransition(source = { "CREATE" }, target = { "NOTSTART" })
+    public void publish(@EventHeaders Map<String, Object> headers,
+                           ExtendedState extendedState,
+                           StateMachine<String, String> stateMachine,
+                           Message<String> message,
+                           Exception e) {
+
+        System.err.println("exec transition :" + headers);
+    }
+
+    /*@StatesOnTransition(source = States.NOTSTART)
+    public void autoAction(@EventHeaders Map<String, Object> headers,
+                           ExtendedState extendedState,
+                           StateMachine<String, String> stateMachine,
+                           Message<String> message,
+                           Exception e) {
+
+        System.err.println("[time task] auto run, current mills:" + System.currentTimeMillis());
+    }*/
 }

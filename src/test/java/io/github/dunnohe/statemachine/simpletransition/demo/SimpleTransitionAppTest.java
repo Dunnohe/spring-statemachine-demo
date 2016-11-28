@@ -24,4 +24,24 @@ public class SimpleTransitionAppTest extends AbstractJUnit4SpringContextTests  {
         simpleTransitionApp.edit(1, "aaa");
         System.err.println("success!");
     }
+
+    @Test
+    public void testAuto() throws Exception {
+        simpleTransitionApp.publish();
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        thread.start();
+        thread.join();
+    }
 }
