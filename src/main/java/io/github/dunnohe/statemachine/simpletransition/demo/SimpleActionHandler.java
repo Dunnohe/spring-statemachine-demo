@@ -39,7 +39,7 @@ public class SimpleActionHandler {
         System.err.println("exec transition :" + headers);
     }
 
-    /*@StatesOnTransition(source = States.NOTSTART)
+    @StatesOnTransition(source = States.NOTSTART)
     public void autoAction(@EventHeaders Map<String, Object> headers,
                            ExtendedState extendedState,
                            StateMachine<String, String> stateMachine,
@@ -47,5 +47,5 @@ public class SimpleActionHandler {
                            Exception e) {
 
         System.err.println("[time task] auto run, current mills:" + System.currentTimeMillis());
-    }*/
+    }
 }

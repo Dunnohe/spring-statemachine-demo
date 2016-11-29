@@ -57,7 +57,8 @@ public class SimpleStateMachineConfiguration {
             transitions
                     .withExternal()
                         .source(States.CREATE).target(States.NOTSTART).event(Events.PUBLISH).and()
-                    .withExternal()
+                    //timer 必须使用withInternal()
+                    .withInternal()
                         .source(States.NOTSTART).action(new Action<States, Events>() {
                             @Override
                             public void execute(StateContext<States, Events> context) {
