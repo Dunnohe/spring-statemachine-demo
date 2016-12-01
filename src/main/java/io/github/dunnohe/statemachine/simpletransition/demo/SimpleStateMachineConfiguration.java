@@ -30,7 +30,7 @@ public class SimpleStateMachineConfiguration {
         @Override
         public void configure(StateMachineConfigurationConfigurer<States, Events> config)
                 throws Exception {
-            //todo important to start state machine
+            //todo
             config.withConfiguration().autoStartup(true)
                     /*.beanFactory(new StaticListableBeanFactory())
                     .taskExecutor(new SyncTaskExecutor())
@@ -57,14 +57,21 @@ public class SimpleStateMachineConfiguration {
             transitions
                     .withExternal()
                         .source(States.CREATE).target(States.NOTSTART).event(Events.PUBLISH).and()
-                    //timer 必须使用withInternal()
-                    .withInternal()
+                    //timer must use ithInternal()?
+                    /*.withInternal()
                         .source(States.NOTSTART).action(new Action<States, Events>() {
                             @Override
                             public void execute(StateContext<States, Events> context) {
                                 System.err.println("[code action] exec auto task");
                             }
-                        }).timer(1000);
+                        }).timer(1000);*/
+                    .withExternal()
+                    .source(States.NOTSTART).action(new Action<States, Events>() {
+                        @Override
+                        public void execute(StateContext<States, Events> context) {
+                            System.err.println("[code action] exec auto task");
+                        }
+                    }).timer(1000);
         }
     }
 }
