@@ -57,7 +57,7 @@ public class SimpleStateMachineConfiguration {
             transitions
                     .withExternal()
                         .source(States.CREATE).target(States.NOTSTART).event(Events.PUBLISH).and()
-                    //timer must use ithInternal()?
+                    //timer withInternal() works
                     /*.withInternal()
                         .source(States.NOTSTART).action(new Action<States, Events>() {
                             @Override
@@ -65,6 +65,7 @@ public class SimpleStateMachineConfiguration {
                                 System.err.println("[code action] exec auto task");
                             }
                         }).timer(1000);*/
+                    //timer withExternal() doesn't work
                     .withExternal()
                     .source(States.NOTSTART).action(new Action<States, Events>() {
                         @Override
