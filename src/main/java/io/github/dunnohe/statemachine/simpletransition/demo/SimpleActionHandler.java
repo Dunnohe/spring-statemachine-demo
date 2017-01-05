@@ -16,7 +16,8 @@ import java.util.Map;
 @WithStateMachine(name = "myStateMachine")
 public class SimpleActionHandler {
 
-    @OnTransition(source = { "CREATE" }, target = { "UPDATE" })
+    //@OnTransition(source = { "CREATE" }, target = { "UPDATE" })
+    @StatesOnTransition(source = States.CREATE, target = States.UPDATE)
     public void editAction(@EventHeaders Map<String, Object> headers,
                            ExtendedState extendedState,
                            StateMachine<String, String> stateMachine,

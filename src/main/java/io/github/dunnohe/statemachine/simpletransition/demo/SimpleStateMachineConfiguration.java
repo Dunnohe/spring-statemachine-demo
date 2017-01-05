@@ -46,33 +46,33 @@ public class SimpleStateMachineConfiguration {
 
         @Override
         public void configure(StateMachineTransitionConfigurer<States, Events> transitions) throws Exception {
-            /*transitions.withExternal().source(States.CREATE).target(States.UPDATE).event(Events.EDIT).action(new Action<States, Events>() {
+            transitions.withExternal().source(States.CREATE).target(States.UPDATE).event(Events.EDIT).action(new Action<States, Events>() {
                 @Override
                 public void execute(StateContext<States, Events> context) {
                     System.err.println("param:" + context.getExtendedState().getVariables());
                 }
-            });*/
+            });
 
-            //timer transition
+            /*//timer transition
             transitions
                     .withExternal()
                         .source(States.CREATE).target(States.NOTSTART).event(Events.PUBLISH).and()
                     //timer withInternal() works
-                    /*.withInternal()
+                    *//*.withInternal()
                         .source(States.NOTSTART).action(new Action<States, Events>() {
                             @Override
                             public void execute(StateContext<States, Events> context) {
                                 System.err.println("[code action] exec auto task");
                             }
-                        }).timer(1000);*/
+                        }).timer(1000);*//*
                     //timer withExternal() doesn't work
-                    .withExternal()
+                    .withInternal()
                     .source(States.NOTSTART).action(new Action<States, Events>() {
                         @Override
                         public void execute(StateContext<States, Events> context) {
                             System.err.println("[code action] exec auto task");
                         }
-                    }).timer(1000);
+                    }).timer(1000);*/
         }
     }
 }
